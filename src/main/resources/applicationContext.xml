@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="application.properties"/>
+    <bean id="myCat"
+          class="com.example.demo.Cat">
+
+        <constructor-arg index="0" value="${cat.name}"/>
+        <constructor-arg index="1" value="${cat.color}"/>
+        <constructor-arg index="2" value="${cat.age}"/>
+    </bean>
+
+
+    <bean id="myPerson"
+          class="com.example.demo.Person">
+        <constructor-arg index="0" value="${person.name}"/>
+        <constructor-arg index="1" value="${person.age}"/>
+        <constructor-arg index="2" ref="myCat"/>
+
+    </bean>
+
+</beans>
